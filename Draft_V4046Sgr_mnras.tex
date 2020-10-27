@@ -1,0 +1,328 @@
+% mnras_template.tex 
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[letters,usenatbib,times]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+
+% Allow "Thomas van Noord" and "Simon de Laguarde" and alike to be sorted by "N" and "L" etc. in the bibliography.
+% Write the name in the bibliography as "\VAN{Noord}{Van}{van} Noord, Thomas"
+\DeclareRobustCommand{\VAN}[3]{#2}
+\let\VANthebibliography\thebibliography
+\def\thebibliography{\DeclareRobustCommand{\VAN}[3]{##3}\VANthebibliography}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+%% \usepackage{amssymb}	% Extra maths symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+
+\title[High-resolution ALMA observations of V4046\,Sgr]{High-resolution ALMA observations of V4046\,Sgr: a circumbinary disc with a thin ring}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[R. Martinez Brunner et al.]{
+Rafael Martinez-Brunner,$^{1}$\thanks{E-mail: rmartinezbrunner@gmail.com}
+Simon Casassus,$^{1}$
+Sebasti\'an P\'erez,$^{2}$
+et al. 
+\\
+% List of institutions
+$^{1}$Departamento de Astronom\'{\i}a, Universidad de Chile, Casilla 36-D, Santiago, Chile\\
+$^{2}$Universidad de Santiago de Chile, Av. Ecuador 3659, Santiago\\
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2020}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+  The nearby V4046\,Sgr spectroscopic binary hosts a gas-rich disc known for its wide cavity and dusty ring. We present new high resolution ($\sim$20\,mas) ALMA observations of the 1.3\,mm continuum. The comparison of these observations, combined with SPHERE-IRDIS polarized images and a well-sampled spectral energy distribution (SED), against radiative transfer (RT) predictions carried out with the \textsc{radmc3d} package, allow us to propose a physical model for the source. The new ALMA data reveal a very thin ring at a radius of 13.46$\pm$0.43\,au (Ring13), with a marginally resolved radial width of 3.86$\pm$1.00\,au. Ring13 is surrounded by a $\sim$9\,au-wide gap, and it is flanked by a very bright mm outer ring (Ring24) with a sharp inner edge at 24\,au. The steeply decreasing brightness of Ring24 breaks at $\sim$35\,au into a shallow tail. The RT model requires an inner ring at $\sim$6\,au (Ring6) in small dust grains, hiding under the IRDIS coronagraph, and that surrounds an inner circumbinary disc. Faint mm-continuum close ($\sim0\farcs02$) to the stellar position is picked up by ALMA. ***
+  %coincident with Ring6 is picked up by ALMA, whose morphology suggests that Ring6 is lopsided or shadowed by the secondary. 
+  The previously reported scattered-light shadow of the secondary star is also reproduced by the RT model. The surprising thin Ring13 is nonetheless roughly 12 times wider than the model scale height, and could thus be long-lived. The strong near-far disc asymmetry at 1.65\,$\micron$ points at a very forward-scattering phase function, and requires grain radii of no less than 0.4\,$\micron$. 
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+ protoplanetary discs -- submillimetre: planetary systems -- radiative transfer
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+\section{Introduction} \label{sec:Introduction}
+
+Recent observations of young circumstellar discs have transformed current knowledge of planet formation, but the focus of resolved imaging with the Atacama Large Millimetre/submillimetre Array (ALMA) or with 
+%VLT/SPHERE 
+the current generation of high-contrast images 
+has mainly been towards the brighter sources \citep{Andrews2020arXiv200105007A}. The discs around T Tauri Stars (DARTTS) program was first presented in \citet{Avenhaus_2018} with the aim to image eight stars with the Spectro-Polarimeter High-contrast Exoplanet REsearch (SPHERE) \citep{2019A&A...631A.155B}. The sample is not biased towards exceptionally bright and large discs, and consists of only solar-type stars. A second part of the survey increased the number of sources by presenting 21 new images of circumstellar discs \citep{Garufi2020}. The observations revealed diverse structures and morphologies in the scattering surface of these discs. This letter on V4046 Sagittarii (Sgr) is part of the DARTTS survey with ALMA (DARTTS-A) which will present millimetre observations of nine protoplanetary discs previously imaged in polarized scattered light in DARTTS-S. 
+
+V4046\,Sgr is a double-lined spectroscopic binary of K-type stars (K5 and K7) with very similar masses of 0.90$\pm$0.05\,M$_{\sun}$ and 0.85$\pm$0.04\,M$_{\sun}$ \citep{Rosenfeld_2012} in a close ($a \approx 0.041$\,au), circular ($e\leq0.01$) orbit, with an orbital period of 2.42 days \citep{refId0}. It is a member of the $\beta$ Pictoris moving group \citep{Zuckerman_2004}, with an estimated age of 23$\pm$3\,Myr \citep{Mamajek_2014}, and its distance is 72.41$\pm$0.34\,pc \citep{Gaia}. V4046\,Sgr hosts a massive ($\sim$0.1\,M$_{\sun}$) circumbinary disc extending to $\sim$300\,au \citep{Rosenfeld_2013, Rodriguez_2010}, with a rich observable chemical diversity \citep{Kastner_2018}. 
+
+The structure of this letter is as follows. The observations, including new 1.3\,mm continuum data, are described in Section~\ref{sec:Observations}. We interpret the data in terms of a parametric model, presented in Section~\ref{sec:model}. Previous models of V4046\,Sgr have been made \citep{Ru_z_Rodr_guez_2019, Rosenfeld_2013, 2019ApJ...882..160Q} but our new ALMA data bring additional information. Our results are discussed in Section~\ref{sec:results} and summarised in Section~\ref{sec:Conclusions}.
+
+\section{Observations} \label{sec:Observations}
+
+%% Disc structures can be explored by means of comparing mm continuum and scattered-light images. These observations allow us to see the distribution of different populations of dust particles, while ALMA traces the millimetre-sized grains settled in the mid-plane of the disc, scattered-light imaging accounts for photons reflected off small micron-sized dust at the disc surface layer, high above the mid-plane. By comparing both, is easier to determine whether asymmetries in scattered light correspond to surface ripples or deep structures intrinsic to the underlying density distribution. 
+
+New ALMA observations of V4046\,Sgr were obtained in 2017 as part of the Cycle 5 program 2017.1.01167.S (PI: S. Perez). These were acquired in the context of the DARTTS-A program (Perez et al. {\em in prep}), a larger survey for 9 optically visible TTauri discs at $\sim$50\,mas resolution. The survey simultaneously mapped the 1.3\,mm continuum and the J = 2$-$1 line of $^{12}$CO with the C43-8 array configuration in band 6 (211-275\,GHz). This work focuses exclusively on the data obtained in the 1.3\,mm continuum for our source, acquired with baselines ranging from 92 to 8548\,m, which translate into a synthesized beam of $0\farcs077 \,\times \, 0\farcs051$ (in natural weights).
+
+V4046 Sgr was observed in differential polarization imaging (DPI) mode with SPHERE/IRDIS on March 13, 2016. All the details of this observation can be found in the first DARTTS-S paper \citep{Avenhaus_2018} where the image was first published. Here we use a new reduction of the $H$ band data produced by the IRDAP pipeline \citep{2020A&A...633A..64V}, which can separate stellar and instrumental polarization. The polarized signal is consistent with the previous image in \citet{Avenhaus_2018}. The degree of linear polarization of the central and unresolved signal in V4046 Sgr is only 0.13\%, with a systematic uncertainty of 0.05\% due to time-varying atmospheric conditions during the exposures. The angle of polarization is aligned with the disk major disk, as expected given that the target has Av=0.0 \citep{2016ApJ...828...69M} and the entire polarization is dominated by circum rather than inter-stellar material. 
+
+For our analysis of the ALMA image we used an image reconstruction strategy, using the non-parametric image synthesis of the {\tt uvmem} package \citep{2006ApJ...639..951C, 2018A&C....22...16C} it is possible to super-resolve the clean beam, obtaining an effective angular resolution $\sim$3 times finer than natural weights. The model image is obtained by fitting the data using Chi-squared minimisation, with a measure of regularization when required. Here we adopted a $\chi^2$ model image with $\lambda$ = 0.1 for regularization. The resulting {\tt uvmem} image shown in Fig.~\ref{fig:images_vs_simulated} exhibits previously unseen substructure of the disc. This image reveals that the disc features two rings of large dust grains with a broad gap between them, i.e. Ring13 at 13\,au and Ring24 starting at 24\,au. The wide and bright Ring24 reaches its peak intensity at $\sim$30\,au, beyond which it drops steeply before breaking at $\sim$35\,au into a shallow tail. While this is the first observation of Ring13, \citet{Ru_z_Rodr_guez_2019} did anticipate its existence as their ALMA continuum image showed a distinct excess between
+$\sim$10 and 17\,au.
+
+\begin{figure*}
+  \includegraphics[width=\textwidth]{hot_two_E.pdf}
+  \caption{Comparison of observations and simulated images at 1.65\,$\micron$ and 1.3 mm continuum of the circumbinary disc orbiting V4046\,Sgr. From top to bottom: DPI image and ALMA Band 6 observations; simulated images of the parametric model. Top left panel: SPHERE-IRDIS \textit{H}-band image with a yellow filled circle that illustrate the N\_ALC\_YJH\_S coronagraph with a radius of $\sim0\farcs12$, or $\sim$8.6\,au at 72.4\,pc. Top right panel: 1.3\,mm continuum {\tt uvmem} model image. The yellow ellipse shows the size of the natural-weighted beam ($ 0\farcs077 \, \times \, 0\farcs051$), and the small orange ellipse shows an estimated {\tt uvmem} beam size ($\sim0\farcs026 \, \times \, \sim0\farcs017$). The inset zooms into the central emission, and the green star marks the star positions. Bottom left panel: 1.65\,$\upmu m$ simulated image of the parametric model. Bottom right panel: 1.3\,mm simulated image of the parametric model. The orange ellipse shows the size of the beam: $0\farcs026 \, \times \, 0\farcs017$. For all the images in the figure the colour scale is linear.}
+  \label{fig:images_vs_simulated}
+\end{figure*}
+
+Ring13 is surprisingly narrow and seems to be off-centred relative to the GAIA stellar position (at the origin of coordinates in Fig.~\ref{fig:images_vs_simulated}). We determined the ring's centre and orientation by minimising the dispersion of the disc radial profiles, from 6\,au to 19\,au, and thus obtained a PA of 74.64$\pm$0.08\,$\degr$, an inclination of 33.90$\pm$0.04\,$\degr$ and a centre at $\Delta \alpha = 9\pm0.05$\,mas $\Delta \delta = 0.06\pm0.04$\,mas, relative to the stars.
+
+The ring width can be measured in polar coordinates by fitting 1-D Gaussians, thus obtaining a width and centroid at each azimuth. On average, we obtained a FWHM of 4.17$\pm$0.94\,au, and a stellocentric radius of 13.46$\pm$0.43\,au (See Fig.~\ref{fig:polarring}). As the {\tt uvmem} model image has an effective angular resolution of $\sim$1/3 that of the natural-weighted beam ($0\farcs077 \,\times \, 0\farcs051$), we see that Ring13 is marginally resolved. After subtraction of the approximate {\tt uvmem} resolution ($\sim0\farcs026 \, \times \, \sim0\farcs016$), the ring width is $\sim$3.86$\pm$1.00\,au. 
+
+Repeating the optimization of the disc orientation, but this time aiming for Ring24 with a radial domain from 20\,au to 70\,au, we obtained a PA of 76.78$\pm$0.03\,$\degr$, with an inclination of 34.01$\pm$0.01\,$\degr$ and a centre at $\Delta \alpha = 19\pm0.04$\,mas $\Delta \delta = 7\pm0.03$\,mas relative to the stars. We see that both Ring13 and Ring24 both share the same orientation and centre, given the errors, and both are offset from the star. Even though all orientation parameters for Ring13 and Ring24 are consistent within the errors, there are however some hints for a different orientation, as summarised in Fig.~\ref{fig:polarring}, perhaps due to the joint effect of all these small differences.
+
+Interestingly, the ALMA image also detects faint 1.3\,mm continuum emission near the stellar positions (See the inset in Fig.~\ref{fig:images_vs_simulated}). Since this faint central emission is offset from the star, at the origin of coordinates in the figure, it is probably due to large dust grains. This dust structure is at a distance of only $\sim0\farcs02$ from the binary system, and may be part of some inner structure possibly having to do with the small grain ring called Ring6 introduced in the RT model to match the SED (see Sec.\,\ref{sec:model} below). ***
+%match the small grain ring called Ring6 introduced in the RT model to match the SED (see Sec.\,\ref{sec:model} below). If so, then given that the binary phase at the time of the observations is PA=347\,$\degr$, so that the secondary lies roughly northwards of the primary, it may be that the northern side of Ring6 is shadowed, resulting in a seemingly lopsided geometry.
+
+The scattered-light image shown in Fig.~\ref{fig:images_vs_simulated} also shows a double ring structure in the micron-
+sized dust distribution. The observed morphology presents an inner cavity of $\sim$10\,au in radius and two rings located at 14.10$\pm$0.01, coincident with Ring13, and 24.62$\pm$0.08\,au, coincident with Ring24, with a small gap between them at $\sim$20\,au. The observed second ring matches the inner wall of the 1.3\,mm continuum emission outer ring \citep{Ru_z_Rodr_guez_2019}. Two other important features that are present in the image are: the brightness asymmetry and the shadows projected on the disc produced by the close binary system as they eclipse each other, described in detail by \citet{dOrazi}.
+
+The binary phase reported by \citet{dOrazi} in the scattered-light observation is at a position angle (PA) of 254\,$\degr$, east of north. Using this measurement, the binary phase was calculated at the time of the ALMA observation at a PA of 347\,$\degr$. There is no hint of radio decrements in either Rings13 nor in Ring24 that would match shadowing at this PA, could be explained by inefficient disc cooling compared to the speed of the illumination pattern \citep{Casassus2019MNRAS.486L..58C}. 
+
+\begin{figure}
+    \includegraphics[width=\columnwidth]{polar_ring_aprox_and_diff_inner.pdf}
+    \caption{(a) Polar decomposition of the 1.3\,mm continuum image, using the orientation of Ring24. We trace Ring13 using the centroids (solid line) and width of radial Gaussian fits (blue region between the dotted lines). (b) Centroid of Ring13, for two disc orientations: the orange line corresponds to the same trace as in a), while the blue line is obtained for the inner ring orientation.}
+    \label{fig:polarring}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{comp_fig_all_profiles_au.pdf}
+    \caption{Comparison of the surface brightness profiles extracted from the deprojected synthetic images and observed \textit{H}-band and 1.3\,mm continuum images. The grey shaded area represents the radius of the artificial coronagraph used in the simulations (i.e., $\sim0\farcs 12$, or $\sim$8.6\,au at 72.4\,pc).}
+    \label{fig:radprofiles}
+\end{figure}
+
+The observed SED was collected from data in the literature \citep{1988iras....7.....H, 1990A&A...234..230H, Jensen_97, 2000A&A...355L..27H, 2001KFNT...17..409K, 2003yCat.2246....0C, 2007PASJ...59S.369M, 2008PASP..120.1128O, 2010A&A...514A...1I, 2012yCat.2311....0C}, online in \textsc{vizier}, and also using spectrometry data from an archival \textit{Spitzer} IRS spectrum (See Fig.\ref{fig:SED}). The SED will provide us with missing information about the dust population.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{SED_.png}
+    \caption{The observed SED of V4046\,Sgr (black points and solid red curve) compared with the model (blue). The black points represent the measured photometry and the red line shows an archival \textit{Spitzer} IRS spectrum. The dashed silver curve shows the emission of the stellar photosphere model.}
+    \label{fig:SED}
+\end{figure}
+
+\section{Parametric radiative transfer model} \label{sec:model}
+
+The multi-frequency data can be interpreted in terms of a physical structure using radiative transfer predictions, for which we used the \textsc{radmc3d} package \citep{Dullemond_2012}. The general framework of the parametric model that we used is similar to that in \citet{2018MNRAS.477.5104C} for DoAr\,44, and the initial model values were inspired from those in \citet{Rosenfeld_2013}. Through trial and error, we found a set of values for the parameters that correctly fit the available data. The final structure of the parametric model goes as Fig.~\ref{fig:profiles} shows.
+
+For the representation of the stars, we used two Kurucz photospheres models \citep{1979ApJS...40....1K, 1997A&A...318..841C} with T$_{\mathrm{eff},1} =$ 4350\,K, R$_{*,1} =$ 1.064\,R$_{\sun}$, M$_{*,1} =$ 0.90\,M$_{\sun}$ and T$_{\mathrm{eff},2} =$ 4060\,K, R$_{*,2} =$ 1.033\,R$_{\sun}$, M$_{*,2} =$ 0.85\,M$_{\sun}$ respectively and with an accretion rate of log$\,\dot{\mathrm{M}} = -$9.3\,Myr$^{-1}$ for both cases \citep{10.1111/j.1365-2966.2011.19366.x}. The stars were placed at a mutual separation of 0.041\,au, so that their centre of mass coincides with the origin, and oriented at a PA of 250\,$\degr$, so that the secondary lies to the NWW from the primary, thus casting the same shadow as observed by \citet{dOrazi}.
+
+Reproducing the radial and vertical structure of the V4046\,Sgr disc turned out to be challenging. We built the model in terms of the gas distribution, and with two different dust populations: larger grains that are vertically settled and dominate the total dust mass and a population of smaller grains that are uniformly mixed with the gas and reach larger heights above the mid-plane. 
+
+Assuming a three dimensional model in a cylindrical reference frame with coordinates ($r$, $\theta$, $z$), the gas density ($\rho_{\mathrm{gas}}$) distribution follows
+\begin{equation}
+  \rho_{\mathrm{gas}}(r,z) =\frac{\Sigma(r) \,\delta(r)}{\sqrt{2\pi} \, H(r)} \mathrm{exp}\left[-\frac{1}{2} \left(\frac{z}{H(r)}\right)^2\right],
+\end{equation}
+where $\delta(r)$ parameterises the density drops in the gaps and cavities, $H(r)$ is the scale height profile and $\Sigma(r)$ is the surface density profile. $\Sigma(r)$ is defined by
+\begin{equation}
+  \Sigma(r) = \Sigma_\mathrm{c} \left(\frac{r}{R_\mathrm{c}}\right)^{-\gamma}  \, \mathrm{exp}\left[-\left(\frac{r}{R_\mathrm{c}}\right)^{2-\gamma}\right],
+\end{equation}
+where $R_c$ is a characteristic radius and $\gamma$ is the surface density gradient. A fixed $\gamma$ = 1 is used as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. 
+
+%The $\delta(r)$ function, that account for deviations from the power law, is defined as:
+%\begin{align}
+%\delta(r) = \left\{ \begin{array}{cc} 
+%                 5E-6 & \hspace{5mm} 0.3<r<5 \\
+%                 5E-3 & \hspace{5mm} 5<r<8  \\
+%                 5E-5 & \hspace{5mm} 8<r<12\\
+%                 2.5E-2 & \hspace{5mm} 12<r<19.5 \\
+%                 1E-8 & \hspace{5mm} 19.5<r<20.5 \\
+%                 1E-4 & \hspace{5mm} 20.5<r<25 \\
+%                 1.7E-1 & \hspace{5mm} 25<r<120 \\
+%                \end{array} \right.
+%\end{align}
+
+The parametric scale height profiles for the gas and for each dust population are 
+\begin{equation}
+    \label{scale}
+  H(r)=\chi \, H_{o}(r) \, [r/r_{o}(r)]^{\psi(r)},
+\end{equation}
+where $H_\circ$ is the scale height at r = $r_\circ$, $\psi$ is the flaring index and $\chi$ is a scaling factor (in the range $0-1$) that mimics dust settling. For the gas and the small dust grains $\chi$ = 1 and for the millimetre-size dust population we assign a fixed $\chi$ = 1/2 for simplicity, as in \citet{Rosenfeld_2013}.
+
+For the vertical structure, \citet{dOrazi} found flaring angles of $\varphi$ = 6.2$\pm$0.6\,$\degr$ for the inner ring and $\varphi$ = 8.5$\pm$1.0\,$\degr$ for the outer one. explicar que es varphi y como se transforma en psi*** Our model uses the same values, with two different flaring indexes $\psi$. The separation between the two values were set at $r$ = 19\,au with $\psi=0.2$ for Ring6 and Ring13, and $\psi=0.5$ for Ring24. The scale height is $H_\circ = 0.045$ at $r_0 = 19.5$\,au.
+
+The total dust-to-gas mass ratio is taken to be $\zeta = 0.047$ \citep[as in][]{Rosenfeld_2013}. The small dust grains are assumed to only make up for a fraction of $f_\mathrm{sd}=1\%$ of the total dust mass. As small dust is typically tightly coupled to the gas dynamics, its density profile is largely expected to follow the gas density. Then the density of small dust can be calculated as:
+\begin{equation}
+\rho_{\mathrm{small-dust}}(r,z)=\rho_{\mathrm{gas}}(r,z)\, f_{\mathrm{sd}} \: \zeta .
+\end{equation}
+
+Since the large-dust grains are less coupled to the gas, their distribution has some important differences that require a special parameterisation, with a large inner cavity and scaling factors that account for the larger gap between the rings. For the inner ring, the same profile as the gas is used, but with different values for $R_c$ and $\Sigma_c$. The greatest difference is in the outer ring, where we used a decaying power law modulated by the sum of two Gaussian profiles. In an effort to recreate the break seen in the outer ring between 30.2 and 36.7\,au, we chose a different value for $\gamma$ = -6. For the large dust grains the surface density profile is thus
+\begin{multline}
+  \Sigma_{\mathrm{large-dust}}(r) = \Sigma_{\mathrm{c}2} \left(\frac{r}{R_{\mathrm{c}2}}\right)^{-\gamma} \\ \, \left\{ \exp\left[-\left(\frac{r}{R_{\mathrm{c}2}}\right)^{2-\gamma}\right] + \mathrm{exp}\left[-\left(\frac{r}{R_{\mathrm{c}2}}\right)^{2}\right]\right\}.
+\end{multline}
+
+The inner part of the outer ring follows a different behaviour. Between $R_\mathrm{in}$ and $R_\mathrm{peak}$, the gas density profile is multiplied by an additional factor
+\begin{equation}
+    \epsilon(r) = \left(\frac{ r - R_\mathrm{in}}{R_\mathrm{peak} - R_\mathrm{in}}\right)^3,
+\end{equation}
+where $R_\mathrm{in}$ and $R_\mathrm{peak}$ would depend on the dust population, marking the beginning and the maximum density peak of the outer ring. This parameter allow us to model a smoother inner wall of the outer ring.
+
+The two different populations of dust grains corresponds to the small grains, with radii ranging from 0.4 to 1.5\,$\micron$, and the large dust grains range, with radii from 0.4\,$\micron$ to 10\,mm. We computed the dust opacities using the {\tt bhmie} code provided in the \textsc{radmc3d} package, with a mix composed of 70\% silicate and 30\% graphite. 
+
+The observed near-far asymmetry in the DPI image is suggestive of a strongly forward-scattering phase function. In order to reproduce a similar asymmetry, we used much larger grains that typically used in the RT modelling of such near-IR data \citep[e.g.,][]{2018MNRAS.477.5104C}. 
+
+The simulated DPI image at 1.65\,$\micron$ in Fig.\,\ref{fig:images_vs_simulated} was obtained with the scattering matrix calculated by the {\tt makeopac.py} script provided in the \textsc{radmc3d} package. As a way of reproducing the \textit{H}-band image, we used a different grain size distribution, where we used a Gaussian distribution centred at 0.4\,$\micron$, and smeared out by 30\% in both directions, and using 20 grain size bins within that range. This distribution applies only to generate the NIR image.
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{allprofiles.png}
+        \caption{{\bf Top:} surface density profiles for the gas, the large and small grain populations. {\bf Bottom:} scale height profile $h(r)$. The dashed lines crossing both panels correspond to transition radii in the parametric model.}
+    \label{fig:profiles}
+\end{figure}
+
+The gas and small dust surface density profiles begin at 0.3\,au, out of the zone expected to be cleared by dynamical interactions with the central binary \citep{Art_Lu}, which is expected to be $\sim$0.1\,au. For the small dust grains, we propose a three ringed structure. The innermost ring of the model is located from 5 to 8\,au, this ring, introduced as Ring6 in Sec.\,\ref{sec:Observations}, is not detectable in the IRDIS observations but was required to account for the SED. Then follow the two rings observed by IRDIS: Ring13, from 12 to 19.5\,au, which is surrounded by very narrow 1\,au-wide gap, and then Ring24, that starts 20.5\,au and has its maximum density peak at 25\,au. The small-dust density then decays exponentially with radius.
+
+On the other hand, in order to reproduce the double-ringed morphology of the millimetre continuum emission, we required a model with a wide central cavity ($r = 11.7$\,au), a narrow 3.7\,au-wide inner ring (which is Ring13) followed by a 8.2\,au gap that separates the outer ring (Ring24), which starts at 22\,au and reaches peak densities at 27.7\,au. This last ring has an observed break between 30.2 and 36.7\,au, which is reproduced in the model with a discontinuity in the exponent $\gamma$, along with the sum of the decaying exponentials. We also truncated the model large-grain density at $\sim$55\,au. 
+
+The inner radius of the model grid was set to 0.1\,au and an outer radius of 115\,au, large enough for the dust disc to become undetectable. We set the values of the inclination an the position angle as the same as those obtained from the ALMA observation in Section~\ref{sec:Observations}, so the model has an inclination of i = 33.9\,$\degr$ and a P.A. = 74.6\,$\degr$. Finally, the distance is set at d = 72.4\,pc \citep{Gaia}.
+
+\section{Model results and discussion} \label{sec:results}
+
+Our parametric model is fairly successful in reproducing the available data. The simulated images and the SED of the model are shown in Fig.~\ref{fig:images_vs_simulated} and Fig.~\ref{fig:SED} respectively.
+
+The simulated image at 1.65\,$\micron$ shows a similar radial structure to the one visible in the observations, displaying a two ringed disc, where Ring6 hides under the artificial coronagraph. The visible asymmetry in the SPHERE observations is recreated using grains larger than 0.4\,$\micron$ as smaller grains do not cause a strong forward scattering, meaning that the disc is depleted of very-small grains. Interestingly, the model accurately shows the shadows described by \citet{dOrazi} that are present in the SPHERE-IRDIS image.
+
+The simulated 1.3\,mm continuum image reproduces the two observed rings: the faint Ring13 and the brighter Ring24. As the radial profiles obtained from the simulated images of the model closely resemble those deduced from the observations (Fig.~\ref{fig:radprofiles}), we can assume that the model provides an approximation of the disc structure, including the dimensions of Ring13. Accordingly, taking the parametric model values for Ring13 we have that it has a radius of 13.6\,au, a width of 3.7\,au, and a scale height FWHM of the millimetre-size dust ranging from 0.28 to 0.40\,au. The total dust mass of Ring13 is about 3\,M$_{\earth}$ in the model. In turn, in our model Ring24 reaches peak intensity at $\sim$30\,au, then breaks at $\sim$35\,au, as in the observations, and has a total dust mass of $\sim$43\,M$_{\earth}$. The model predictions for the millimetre-size dust population in Ring13 are close to the measurements, with only a 0.14\,au difference in the centroid location of the ring, and a 0.17\,au difference in the width estimation.
+
+As \citet{2018ApJ...869L..46D} explain the stability of a narrow dust ring requires that its height is smaller than its radial extent. Using the parametric model scale height of 0.28\,au at 13.46\,au and the measured width of Ring13 (3.86\,au FWHM, see Section~\ref{sec:Observations}), we have that its width is $\sim$12 times its scale height.
+
+The observed structure may point to the existence of planet-disk interaction within this system, where a giant planet depletes its orbit of gas and dust material. A possible constellation in this scenario is therefore the presence of two giant planets in the disk, one planet between the star and Ring13, and one planet between Ring13 and Ring24. This idea is supported by the similarity to the structure around HD 169142 which \citet{bertrang_avenhaus_2018} reproduced by including several giant planets . We point out that also the disk dispersal by photoevaporative winds \citep{1994ApJ...428..654H} as causation of the inner cavity cannot be ruled out at his stage.
+
+The effective beam size of the presented ALMA observations marginally resolves the width of Ring13 to be $w_\mathrm{d} = 3.86\mathrm{au}$. The most suitable RT model demands a density distribution of small grains and gas that is radially more extended, with an approximate width of $7.5\mathrm{au}$. Although the RT model ascribed step functions to gas and dust densities, in a more physical scenario the density should roughly follow a Gaussian distribution. Assuming that the gas' Ring13-width in the RT model corresponds to the FWHM of a Gaussian structure $w_\mathrm{g} = 7.5\mathrm{au}$, we can see that large dust grains have to be radially converged to explain the discrepancy.
+
+Similarly to \citet{2018ApJ...869L..46D}, the ratio between dust and gas ring width can be linked to important properties:
+\begin{equation}\label{eq:ringwidth}
+        \frac{w_\mathrm{d}}{w_\mathrm{g}} = \sqrt{\frac{\alpha}{\alpha+\mathrm{St}}}\,,
+\end{equation}
+where we implicitly assumed the turbulent diffusivity to be equal to the turbulent viscosity. Here, $\alpha$ represents the typical parameter for turbulent viscosity, and $\mathrm{St}$ is the dimensionless Stokes number. Assuming that the most relevant grain size for observed fluxes corresponds to $a = \lambda \mathrm{obs}/(2 \pi)$, and estimating the gas surface density within Ring13 from the RT model to be roughly $20\,\mathrm{g}/\mathrm{cm}^2$, yields $\mathrm{St}\approx 0.03$. With these considerations, equation (\ref{eq:ringwidth}) provides a value of $\alpha \approx 0.01$ for the level of turbulent viscosity. We emphasise that this relies on rough estimates and is additionally restricted to the area within Ring13.
+
+The observed SED is compared with the model in Fig.~\ref{fig:SED}. From the similarity with the data we propose that there has to be a small-grain population close to the stars down to 0.3\,au. The decision of employing the three ringed structure for the small dust grains relies on the fact that the SED needed a ring at a radius smaller than 10\,au to have a proper fit around 10\,$\micron$.
+%and we may have detected this ring in the ALMA image, if this ring is lopsided or shadowed by the secondary. 
+Ring6 may be just artificial and not a real prediction, as a thin ring like the one needed would have to have millimetre-size dust grains due to dust trapping, and those grains are not present in the ALMA observation. *** 
+
+\section{Conclusions} \label{sec:Conclusions}
+
+New ALMA 1.3\,mm continuum imaging of the circumbinary disc around V4046\,Sgr were analysed in the context of the available IR imaging and the observed spectral energy distribution using a RT model. The key conclusions are as follows.
+\begin{enumerate}
+  \item We report the detection of a narrow ring in the 1.3\,mm continuum, with a radius 13.46$\pm$0.43\,au and an estimated width of 3.86$\pm$1.00\,au. The location of this ring is coincident with the inner ring observed in the scattered-light image, revealing that the ring includes around 3\,M$_{\earth}$ millimetre-sized grains. Using the parametric model scale height value ($h= $ 0.28\,au at 13.46\,au) we have that the ring width is roughly 12 times its estimated height.
+  
+  \item The 1.3\,mm outer ring, that starts at $\sim$23\,au and has its peak intensity at $\sim$32\,au, presents a visible break in the surface brightness at $\sim$35\,au. 
+  
+  \item We interpret the asymmetry observed with SPHERE-IRDIS at 1.65\,$\micron$ as due to strong forward-scattering, which implies that the dust population is depleted of grains smaller than $\sim$0.4\,$\micron$.
+  
+  \item Our parametric model, which accounts for the SED of the system, involves the existence of a sub-micron dust population close (<5\,au) to the stars. 
+  %We also predict the existence of another thin ring at $\sim$6\,au, about 3\,au-wide and made of small dust grains, and that lies under the coronagraph of the scattered-light image. 
+  %The weak central emission at 1.3\,mm could be part of this ring.
+\end{enumerate}
+
+
+
+ \section*{Acknowledgements}
+
+This paper makes use of the following ALMA data: ADS/JAO.ALMA \#2017.0.01167.S. ALMA is a partnership of ESO (representing its member states), NSF (USA) and NINS (Japan), together with NRC (Canada), MOST and ASIAA (Taiwan), and KASI (Republic of Korea), in cooperation with the Republic of Chile. The Joint ALMA Observatory is operated by ESO, AUI/NRAO and NAOJ. The National Radio Astronomy Observatory is a facility of the National Science Foundation operated under cooperative agreement by Associated Universities, Inc.
+ 
+This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France (DOI : 10.26093/cds/vizier). The original description of the VizieR service was published in \citet{2000A&AS..143...23O}.
+
+This research has made use of the NASA/IPAC Infrared Science Archive, which is funded by the National Aeronautics and Space Administration and operated by the California Institute of Technology.
+
+\section*{Data Availability}
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+\bibliographystyle{mnras}
+\bibliography{bibtex} % if your bibtex file is called example.bib
+
+
+% Alternatively you could enter them by hand, like this:
+% This method is tedious and prone to error if you have lots of references
+%\begin{thebibliography}{99}
+%\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}
+%Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
+%\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}
+%Others S., 2012, Journal of Interesting Stuff, 17, 198
+%\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
