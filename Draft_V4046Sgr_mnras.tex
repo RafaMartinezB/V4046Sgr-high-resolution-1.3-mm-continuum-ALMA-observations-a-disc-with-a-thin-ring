@@ -176,11 +176,25 @@ Assuming a three dimensional model in a cylindrical reference frame with coordin
 \begin{equation}
   \rho_{\mathrm{gas}}(r,z) =\frac{\Sigma(r) \,\delta(r)}{\sqrt{2\pi} \, H(r)} \mathrm{exp}\left[-\frac{1}{2} \left(\frac{z}{H(r)}\right)^2\right],
 \end{equation}
-where $\delta(r)$ parameterises the density drops in the gaps and cavities, $H(r)$ is the scale height profile and $\Sigma(r)$ is the surface density profile. $\Sigma(r)$ is defined by
+where $H(r)$ is the scale height profile and $\Sigma(r)$ is the surface density profile. $\Sigma(r)$ is defined by a combination of four individual components: the inner disc, Ring6, Ring13 and Ring24.
 \begin{equation}
-  \Sigma(r) = \Sigma_\mathrm{c} \left(\frac{r}{R_\mathrm{c}}\right)^{-\gamma}  \, \mathrm{exp}\left[-\left(\frac{r}{R_\mathrm{c}}\right)^{2-\gamma}\right],
+  \Sigma(r) = \Sigma_{\mathrm{inner\,disc}} + \Sigma_{\mathrm{Ring6}} + \Sigma_{\mathrm{Ring13}} + \Sigma_{\mathrm{Ring24}}
 \end{equation}
-where $R_c$ is a characteristic radius and $\gamma$ is the surface density gradient. A fixed $\gamma$ = 1 is used as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. 
+
+%$\delta(r)$ parameterises the density drops in the gaps and cavities,
+
+The inner disk follows a power law function defined by
+\begin{equation}
+  \Sigma_{\mathrm{inner\,disc}}(r) =\Sigma_\mathrm{c} \left(\frac{r}{R_\mathrm{c}}\right)^{-\gamma}  \, \mathrm{exp}\left[-\left(\frac{r}{R_\mathrm{c}}\right)^{2-\gamma}\right],
+\end{equation}
+where $R_c$ is a characteristic radius and $\gamma$ is the surface density gradient. We used $R_c$ = 16 and a fixed $\gamma$ = 1 as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. 
+
+We choose to use a Gaussian profiles to parameterize Ring6 and Ring13,
+\begin{equation}
+  \Sigma_{\mathrm{Ring}}(r) = \frac{\Sigma_\circ}{\sqrt{2 \pi} \sigma}
+  \, \mathrm{exp}\left[-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}\right],
+\end{equation}
+
 
 %The $\delta(r)$ function, that account for deviations from the power law, is defined as:
 %\begin{align}
@@ -210,9 +224,10 @@ The total dust-to-gas mass ratio is taken to be $\zeta = 0.047$ \citep[as in][]{
 \end{equation}
 
 Since the large dust grains are less coupled to the gas, their distribution has some important differences that require a special parameterisation, with a large inner cavity and scaling factors that account for the larger gap between the rings. For the inner ring, the same profile as the gas is used, but with different values for $R_c$ and $\Sigma_c$. The greatest difference is in the outer ring, where we used a decaying power law modulated by the sum of two Gaussian profiles. In an effort to recreate the break seen in the outer ring between 29.8 and 37.9\,au, we chose a different value for $\gamma$ = -3. For the large dust grains the surface density profile is thus
-\begin{multline}
-  \Sigma_{\mathrm{large-dust}}(r) = \Sigma_{\mathrm{c}2} \left(\frac{r}{R_{\mathrm{c}2}}\right)^{-\gamma} \\ \, \left\{ \exp\left[-\left(\frac{r}{R_{\mathrm{c}2}}\right)^{2-\gamma}\right] + \mathrm{exp}\left[-\left(\frac{r}{R_{\mathrm{c}2}}\right)^{2}\right]\right\}.
-\end{multline}
+
+\begin{equation}
+  \Sigma_{\mathrm{large-dust}}(r) = \Sigma_{\mathrm{c}2} \left(\frac{r}{R_{\mathrm{c}2}}\right)^{-\gamma} \exp\left[-\left(\frac{r}{R_{\mathrm{c}2}}\right)^{2-\gamma}\right] .
+\end{equation}
 
 The inner part of the outer ring follows a different behaviour. Between $R_\mathrm{in}$ and $R_\mathrm{peak}$, marking the beginning and the maximum density peak of the outer ring respectively, the gas density profile is multiplied by an additional factor
 \begin{equation}
@@ -228,7 +243,7 @@ The simulated DPI image at 1.65\,$\micron$ in Fig.~\ref{fig:images_vs_simulated}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{allprofiles.png}
-        \caption{{\bf Top:} surface density profiles for the gas, the large and small grain populations. {\bf Bottom:} scale height profile $h(r)$. The dashed lines crossing both panels correspond to transition radii in the parametric model.}
+        \caption{{\bf Top:} surface density profiles for the gas, the large and small grain populations. {\bf Bottom:} Aspect ratio profile $h(r)= H(r)/r$. The dashed lines crossing both panels correspond to transition radii in the parametric model.}
     \label{fig:profiles}
 \end{figure}
 
