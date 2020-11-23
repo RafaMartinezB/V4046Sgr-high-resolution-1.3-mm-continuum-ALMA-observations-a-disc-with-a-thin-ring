@@ -174,9 +174,9 @@ Reproducing the radial and vertical structure of the V4046\,Sgr disc turned out 
 
 Assuming a three dimensional model in a cylindrical reference frame with coordinates ($r$, $\theta$, $z$), the gas density ($\rho_{\mathrm{gas}}$) distribution follows
 \begin{equation}
-  \rho_{\mathrm{gas}}(r,z) =\frac{\Sigma(r) \,\delta(r)}{\sqrt{2\pi} \, H(r)} \mathrm{exp}\left[-\frac{1}{2} \left(\frac{z}{H(r)}\right)^2\right],
+  \rho_{\mathrm{gas}}(r,z) =\frac{\Sigma_{\mathrm{gas}}(r)}{\sqrt{2\pi} \, H(r)} \mathrm{exp}\left[-\frac{1}{2} \left(\frac{z}{H(r)}\right)^2\right],
 \end{equation}
-where $H(r)$ is the scale height profile and $\Sigma(r)$ is the gas surface density profile. 
+where $H(r)$ is the scale height profile and $\Sigma_{\mathrm{gas}}(r)$ is the gas surface density profile. 
 
 The parametric scale height profiles for the gas and for each dust population are 
 \begin{equation}
@@ -187,16 +187,18 @@ where $H_\circ$ is the scale height at r = $r_\circ$, $\psi$ is the flaring inde
 
 For the vertical structure, \citet{dOrazi} found flaring angles of $\varphi$ = 6.2$\pm$0.6\,$\degr$ for the inner ring and $\varphi$ = 8.5$\pm$1.0\,$\degr$ for the outer one. Our model uses the same values, with two different flaring indexes $\psi$. The separation between the two values were set at $r$ = 19\,au with $\psi=0.2$ for Ring6 and Ring13, and $\psi=0.5$ for Ring24. The scale height is $H_\circ = 1$\,au at $r_\circ = 19$\,au.
 
-$\Sigma(r)$ begin at 0.3\,au, out of the zone expected to be cleared by dynamical interactions with the central binary \citep{Art_Lu}, which is expected to be $\sim$0.2\,au. We propose a three ringed structure, so we defined the total gas surface density by a combination of four individual components: the inner disc, Ring6, Ring13 and Ring24.
+We propose a three ringed structure, so we defined the total gas surface density by a combination of four individual components: the inner disc, Ring6, Ring13 and Ring24. Then it is defined by:
 \begin{equation}
-  \Sigma(r) = \Sigma_{\mathrm{inner\,disc}} + \Sigma_{\mathrm{Ring6}} + \Sigma_{\mathrm{Ring13}} + \Sigma_{\mathrm{Ring24}}
+  \Sigma_{\mathrm{gas}}(r) = \Sigma_{\mathrm{inner\,disc}} + \Sigma_{\mathrm{Ring6}} + \Sigma_{\mathrm{Ring13}} + \Sigma_{\mathrm{Ring24}}
 \end{equation}
 
 The inner disk follows a power law function defined by
 \begin{equation}
   \Sigma_{\mathrm{inner\,disc}}(r) =\Sigma_\mathrm{c} \left(\frac{r}{R_\mathrm{c}}\right)^{-\gamma}  \, \mathrm{exp}\left[-\left(\frac{r}{R_\mathrm{c}}\right)^{2-\gamma}\right],
 \end{equation}
-where $R_c$ is a characteristic radius and $\gamma$ is the surface density gradient. We used $R_c$ = 16\,au, $\Sigma_\mathrm{c} =2.6\times10^{-4}$ and a fixed $\gamma$ = 1 as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. We chose to use a Gaussian profiles to parameterize Ring6 and Ring13,
+where $R_c$ is a characteristic radius and $\gamma$ is the surface density gradient. We used $R_c$ = 16\,au, $\Sigma_\mathrm{c} =2.6\times10^{-4}$ and a fixed $\gamma$ = 1 as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. The gas surface density begin at 0.3\,au, out of the zone expected to be cleared by dynamical interactions with the central binary \citep{Art_Lu}, which is expected to be $\sim$0.2\,au.
+
+We chose to use Gaussian profiles to parameterize Ring6 and Ring13,
 \begin{equation}
   \Sigma_{\mathrm{Ring}}(r) = \frac{\Sigma_\circ}{\sqrt{2 \pi} \sigma}
   \, \mathrm{exp}\left[-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}\right],
@@ -218,13 +220,13 @@ The total dust-to-gas mass ratio is taken to be $\zeta = 0.047$ \citep[as in][]{
 \rho_{\mathrm{small-dust}}(r,z)=\rho_{\mathrm{gas}}(r,z)\, f_{\mathrm{sd}} \: \zeta .
 \end{equation}
 
-Since the large dust grains are less coupled to the gas, their distribution has some important differences that require a special parameterisation, with a large inner cavity, a larger gap between the rings and a break in the outer ring. The large-dust surface density profile is defined by the sum of its two components as For the large dust grains the surface density profile is thus
+Since the large dust grains are less coupled to the gas, their distribution has some important differences that require a special parameterisation, with a large inner cavity, a larger gap between the rings and a break in the outer ring. We also truncated the model large-grain density at 64\,au. The large-dust surface density profile is defined by the sum of its two components
 \begin{equation}
   \Sigma_{\mathrm{ld}}(r) = 
   \Sigma_{\mathrm{Ring13,ld}} + \Sigma_{\mathrm{Ring24,ld}}.
 \end{equation}
 
-For the inner ring, we chose a Gaussian profile parameterized with centroid radius $\mu_{\mathrm{Ring13, ld}}=13.36$\,au, ring width of $\sigma_{\mathrm{Ring13,ld}}=0.54$\,au and $\Sigma_{\circ,\mathrm{Ring13,ld}}=4.2\times10^{13}$. For Ring24 we used the same distribution of the gas, but with the difference that, in an effort to recreate the break seen in the outer ring, between 28.6 and 37\,au we chose a different value for $\gamma$ = -5 and $R_c$ = 38. We also truncated the model large-grain density at $\sim$64\,au. Thus, the surface density of the outer ring of large grains dust is defined by
+For the inner ring, we chose a Gaussian profile parameterized with centroid radius $\mu_{\mathrm{Ring13, ld}}=13.36$\,au, ring width of $\sigma_{\mathrm{Ring13,ld}}=0.54$\,au and $\Sigma_{\circ,\mathrm{Ring13,ld}}=4.2\times10^{13}$. For Ring24 we used the same profile of the gas, but with the difference that, in an effort to recreate the break seen in the outer ring, between 28.6 and 37\,au we chose a different value for $\gamma$ = -5 and $R_c$ = 38\,au. Thus, the surface density of the outer ring of large grains dust is defined by
 \begin{equation}
     \Sigma_{\mathrm{Ring24,ld}} = \Sigma_{\mathrm{c}} \left(\frac{r}{R_{\mathrm{c}}}\right)^{-\gamma} \exp\left[-\left(\frac{r}{R_{\mathrm{c}}}\right)^{2-\gamma}\right]\,\delta_{\mathrm{ld}}(r),
 \end{equation}
@@ -235,9 +237,13 @@ where
   0                 & r < 24.6\text{\,au} \\
   4.37 \times10^{4} & 24.6 < r < 28.6\text{\,au} \\
   2.04 \times10^{4} & 28.6 < r < 37\text{\,au} \\
-  1.82 \times10^{5} & 37   < r < 64\text{\,au} \\
-  0                 & r > 64\text{\,au.}
+  1.82 \times10^{5} & 37   < r < 64\text{\,au.} \\
   \end{cases}
+\end{equation}
+Then the final density of large dust can be calculated as
+\begin{equation}
+\rho_{\mathrm{large-dust}}(r,z)=
+\frac{\Sigma_{\mathrm{ld}}(r)}{\sqrt{2\pi} \, H(r)} \mathrm{exp}\left[-\frac{1}{2} \left(\frac{z}{H(r)}\right)^2\right] \, f_{\mathrm{ld}} \: \zeta .
 \end{equation}
 
 The two different populations of dust grains correspond to small grains, with radii ranging from 0.4 to 1.5\,$\micron$, and large dust grains, with radii from 0.4\,$\micron$ to 10\,mm. We computed the dust opacities using the {\tt bhmie} code provided in the \textsc{radmc3d} package, with a mix composed of 70\% silicate and 30\% graphite. 
@@ -266,13 +272,13 @@ The simulated image at 1.65\,$\micron$ shows a similar radial structure to the o
     \label{fig:radprofiles}
 \end{figure}
 
-The simulated 1.3\,mm continuum image reproduces the two observed rings: the faint Ring13 and the brighter Ring24. As the radial profiles obtained from the simulated images of the model closely resemble those deduced from the observations (Fig.~\ref{fig:radprofiles}), we can assume that the model provides a good approximation of the disc structure, including the dimensions of Ring13. Accordingly, taking the parametric model values for Ring13 we have that it has a radius of 13.35\,au, a width of 2.1\,au, and a scale height FWHM of the millimetre-size dust ranging from 0.30 to 0.36\,au. The total dust mass of Ring13 is about 1\,M$_{\earth}$ in the model. In turn, in our model Ring24 reaches peak intensity at $\sim$30\,au, then breaks at $\sim$35\,au, as in the observations, and has a total dust mass of $\sim$32\,M$_{\earth}$. The model predictions for the millimetre-size dust population in Ring13 are close to the measurements, with only a 0.03\,au difference in the centroid location of the ring, and a 0.6\,au difference in the width estimation.
+The simulated 1.3\,mm continuum image reproduces the two observed rings: the faint Ring13 and the brighter Ring24. As the radial profiles obtained from the simulated images of the model closely resemble those deduced from the observations (Fig.~\ref{fig:radprofiles}), we can assume that the model provides a good approximation of the disc structure, including the dimensions of Ring13. Accordingly, taking the parametric model values for Ring13 we have that it has a radius of 13.36\,au, a FWHM of 1.30\,au, and a scale height FWHM of the millimetre-size dust of 0.65\,au. The total dust mass of Ring13 is about 1.5\,M$_{\earth}$ in the model. In turn, in our model Ring24 reaches peak intensity at $\sim$30\,au, then breaks at $\sim$36\,au, as in the observations, and has a total dust mass of $\sim$49\,M$_{\earth}$. The model predictions for the millimetre-size dust population in Ring13 are close to the measurements, with only a 0.04\,au difference in the centroid location of the ring, and a 0.2\,au difference in the width estimation.
 %As \citet{2018ApJ...869L..46D} explain the stability of a narrow dust ring requires that its height is smaller than its radial extent. 
-Using the large grains scale height of 0.65\,au at Ring13, and a measured width of 1.50\,au, the ring is $\sim$2.3 times more extended in radial than in vertical direction.
+Using the large grains scale height of 0.66\,au at Ring13, and a measured width of 1.50\,au, the ring is $\sim$2.3 times more extended in radial than in vertical direction.
 
 The observed structure may point to the existence of planet-disk interaction within this system, where a giant planet depletes its orbit of gas and dust material. A possible constellation in this scenario is therefore the presence of two giant planets in the disk, one planet between the star and Ring13, and one planet between Ring13 and Ring24. As \citet{Ru_z_Rodr_guez_2019} suggest, the putative planet between Ring13 and Ring24 may be a giant planet with a mass within the range of 0.3$-$1.5\,$\mathrm{M}_{\mathrm{Jup}}$. This idea is supported by the similarity to the structure around HD 169142 which \citet{bertrang_avenhaus_2018} reproduced by including several giant planets. %We point out that also the disk dispersal by photoevaporative winds \citep{1994ApJ...428..654H} as causation of the inner cavity cannot be ruled out at his stage.
 
-The effective beam size of the presented ALMA observations marginally resolves the width of Ring13 to be $w_\mathrm{d} = 1.50\mathrm{au}$. The most suitable RT model demands a density distribution of small grains and gas that is radially more extended, with an approximate width of $7.5\mathrm{au}$. Although the RT model ascribed step functions to gas and dust densities, in a more physical scenario the density should roughly follow a Gaussian distribution. Assuming that the gas' Ring13-width in the RT model corresponds to the FWHM of a Gaussian structure $w_\mathrm{g} = 7.5\mathrm{au}$, we can see that large dust grains have to be radially converged to explain the discrepancy.
+The effective beam size of the presented ALMA observations marginally resolves the width of Ring13 to be $w_\mathrm{d} = 1.50\mathrm{au}$. The most suitable RT model demands a density distribution of small grains and gas that is radially more extended, with an approximate width of $7.5\mathrm{au}$. Although the RT model ascribed step functions to gas and dust densities, in a more physical scenario the density should roughly follow a Gaussian distribution. Using that the gas' Ring13-FWHM in the RT model corresponds to $w_\mathrm{g} = 4.83\mathrm{au}$, we can see that large dust grains have to be radially converged to explain the discrepancy.
 
 Similarly to \citet{2018ApJ...869L..46D}, the ratio between dust and gas ring width can be linked to important properties:
 \begin{equation}\label{eq:ringwidth}
@@ -288,9 +294,9 @@ Ring6 may be just artificial and not a real prediction, as a thin ring like the 
 
 New ALMA 1.3\,mm continuum imaging of the circumbinary disc around V4046\,Sgr were analysed in the context of the available IR imaging and the observed spectral energy distribution using a RT model. The key conclusions are as follows.
 \begin{enumerate}
-  \item We report the detection of a narrow ring in the 1.3\,mm continuum, with a radius 13.46$\pm$0.43\,au and an estimated width of 3.86$\pm$1.00\,au. The location of this ring is coincident with the inner ring observed in the scattered-light image, revealing that the ring includes around 3\,M$_{\earth}$ millimetre-sized grains. Using the parametric model scale height value ($H= $ 0.33\,au at 13.46\,au) we have that the ring width is roughly 12 times its estimated height.
+  \item We report the detection of a narrow ring in the 1.3\,mm continuum, with a radius 13.32$\pm$0.26\,au and an estimated width of 1.50$\pm$0.72\,au. The location of this ring is coincident with the inner ring observed in the scattered-light image, revealing that the ring includes around 1.5\,M$_{\earth}$ millimetre-sized grains. Using the parametric model scale height value ($H= $ 0.66\,au at 13.32\,au) we have that the ring width is roughly 2.3 times its estimated height.
   
-  \item The 1.3\,mm outer ring, that starts at $\sim$23\,au and has its peak intensity at $\sim$32\,au, presents a visible break in the surface brightness at $\sim$35\,au. 
+  \item The 1.3\,mm outer ring, that starts at $\sim$24\,au and has its peak intensity at $\sim$30\,au, presents a visible break in the surface brightness at $\sim$35\,au. 
   
   \item We interpret the asymmetry observed with SPHERE-IRDIS at 1.65\,$\micron$ as due to strong forward-scattering, which implies that the dust population is depleted of grains smaller than $\sim$0.4\,$\micron$.
   
