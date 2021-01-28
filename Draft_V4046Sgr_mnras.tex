@@ -21,7 +21,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Basic setup. Most papers should leave these options alone.
-\documentclass[usenatbib,times]{mnras}
+\documentclass[fleqn,usenatbib,useAMS]{mnras}
 
 % MNRAS is set in Times font. If you don't have this installed (most LaTeX
 % installations will be fine) or prefer the old Computer Modern fonts, comment
@@ -72,31 +72,34 @@
 \thanks{E-mail: rmartinezbrunner@gmail.com}
 Simon Casassus,$^{1}$
 Sebasti\'an P\'erez,$^{2}$
-Antonio Hales,$^{7,8}$
+Antonio Hales,$^{3,4}$
 Philipp Weber, $^{1,2}$ \newauthor
-Miguel Carcamo,
+Miguel Carcamo,$^{5,6}$
 Carla Arce-Tord,$^{1}$
-Lucas Cieza,
-Antonio Garufi,
-Sebasti\'an Marino,$^{3}$
-Alice Zurlo$^{4,5,6}$
+Lucas Cieza,$^{7}$
+Antonio Garufi,$^{8}$
+Sebasti\'an Marino,$^{9}$
+Alice Zurlo$^{7,10,11}$
 \\
 % List of institutions
 $^{1}$Departamento de Astronom\'ia, Universidad de Chile, Casilla 36-D, Santiago, Chile\\
 $^{2}$Departamento de F\'isica, Universidad de Santiago de Chile, Av. Ecuador 3659, Santiago\\
-$^{3}$Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK\\
-$^{4}$N\'ucleo de Astronom\'ia, Facultad de Ingenier\'ia y Ciencias, Universidad Diego Portales, Av. Ejercito 441, Santiago, Chile\\
-$^{5}$Escuela de Ingenier\'ia Industrial, Facultad de Ingenier\'ia y Ciencias, Universidad Diego Portales, Av. Ejercito 441, Santiago, Chile \\
-$^{6}$Aix Marseille Universit\'e, CNRS, LAM - Laboratoire d'Astrophysique de Marseille, UMR 7326, 13388, Marseille, France  \\
-$^{7}$Joint ALMA Observatory, Avenida Alonso de C\'ordova 3107, Vitacura 7630355, Santiago, Chile \\
-$^{8}$National Radio Astronomy Observatory, 520 Edgemont Road, Charlottesville, VA 22903-2475, United States of America \\
+$^{3}$Joint ALMA Observatory, Avenida Alonso de C\'ordova 3107, Vitacura 7630355, Santiago, Chile \\
+$^{4}$National Radio Astronomy Observatory, 520 Edgemont Road, Charlottesville, VA 22903-2475, United States of America \\
+$^{5}$Departamento de Ingenier\'ia Inform´atica, Universidad de Santiago de Chile, Av. Ecuador, 3659, Santiago, Chile\\
+$^{6}$Jodrell Bank Centre for Astrophysics, Alan Turing Building, Department of Physics and Astronomy, Alan Turing Building,\\ University of Manchester, Oxford Road, Manchester, M13 9PL, UK \\
+$^{7}$N\'ucleo de Astronom\'ia, Facultad de Ingenier\'ia y Ciencias, Universidad Diego Portales, Av. Ejercito 441, Santiago, Chile\\
+$^{8}$INAF, Osservatorio Astrofisico di Arcetri, Largo Enrico Fermi 5, I-50125, Firenze, Italy\\
+$^{9}$Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK\\
+$^{10}$Escuela de Ingenier\'ia Industrial, Facultad de Ingenier\'ia y Ciencias, Universidad Diego Portales, Av. Ejercito 441, Santiago, Chile \\
+$^{11}$Aix Marseille Universit\'e, CNRS, LAM - Laboratoire d'Astrophysique de Marseille, UMR 7326, 13388, Marseille, France  \\
 }
 
 % These dates will be filled out by the publisher
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2020}
+\pubyear{2021}
 
 % Don't change these lines
 \begin{document}
@@ -106,7 +109,7 @@ $^{8}$National Radio Astronomy Observatory, 520 Edgemont Road, Charlottesville, 
 
 % Abstract of the paper
 \begin{abstract}
-    The nearby V4046\,Sgr spectroscopic binary hosts a gas-rich disc known for its wide cavity and dusty ring.  We present high resolution ($\sim$20--50\,mas) ALMA observations of the 1.3\,mm  continuum which, combined with SPHERE--IRDIS polarized images and a well-sampled spectral energy distribution (SED), allow us to propose a physical model for the source using radiative transfer (RT) predictions. The new ALMA data reveal a very thin ring at a radius of 13.15$\pm$0.26\,au (Ring13), with a marginally resolved radial width of 2.46$\pm$0.56\,au. Ring13 is surrounded by a $\sim$10\,au-wide gap, and it is flanked by a very mm-bright outer ring (Ring24) with a sharp inner edge at 24\,au. The steeply decreasing brightness of Ring24 breaks at $\sim$35\,au into a shallow tail. In order to reproduce the SED, the model that we propose requires an inner ring at $\sim$5\,au (Ring5) composed mainly of small dust grains, hiding under the IRDIS coronagraph, and surrounding an inner circumbinary disc. The surprisingly thin Ring13 is nonetheless roughly 4 times wider than the model scale height, and could thus be long-lived. The strong near-far disc asymmetry at 1.65\,$\micron$ points at a very forward-scattering phase function, and requires grain radii of no less than 0.4\,$\micron$. The previously reported scattered-light shadow of the secondary star is also reproduced by the RADMC3D RT package. 
+    The nearby V4046\,Sgr spectroscopic binary hosts a gas-rich disc known for its wide cavity and dusty ring.  We present high resolution ($\sim$20--50\,mas) ALMA observations of the 1.3\,mm  continuum which, combined with SPHERE--IRDIS polarized images and well-sampled spectral energy distribution (SED), allow us to propose a physical model for the source using radiative transfer (RT) predictions. The new ALMA data reveal a very thin ring at a radius of 13.15$\pm$0.26\,au (Ring13), with a marginally resolved radial width of 2.46$\pm$0.56\,au. Ring13 is surrounded by a $\sim$10\,au-wide gap, and it is flanked by a very mm-bright outer ring (Ring24) with a sharp inner edge at 24\,au. The steeply decreasing brightness of Ring24 breaks at $\sim$35\,au into a shallow tail. In order to reproduce the SED, the model that we propose requires an inner ring at $\sim$5\,au (Ring5) composed mainly of small dust grains, hiding under the IRDIS coronagraph, and surrounding an inner circumbinary disc. The surprisingly thin Ring13 is nonetheless roughly 4 times wider than the model scale height. The strong near-far disc asymmetry at 1.65\,$\micron$ points at a very forward-scattering phase function, and requires grain radii of no less than 0.4\,$\micron$. The previously reported scattered-light shadow of the secondary star is also reproduced by the RADMC3D RT package. 
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -143,7 +146,7 @@ The regularization term $S$ depends on the application, and in this case we chos
 \begin{equation}
 S = \sum_{j=1}^M \frac{I_j^m}{M} \ln\left(\frac{I_j^m}{M}\right),
 \end{equation}
-where $M$ is the default pixel intensity value, and is set to $10^{-3}$ times the theoretical noise of the dirty map (as inferred from the visibility weights $\omega_k$). Here we set $\lambda = 0.01$.  Similar applications of {\tt uvmem} in the context of protoplanetary discs can be found, for example,  in \citet{Casassus2013Natur, 2018MNRAS.477.5104C, Casassus2019MNRAS.483.3278C,  Perez2019AJ....158...15P}.  An  advantage of {\tt uvmem} compared to more traditional imaging strategies, such as provided by the  {\tt tclean}   task in CASA, is that the effective angular resolution of the model image is  $\sim$3 times finer than the natural weights clean beam \citep[][]{2018A&C....22...16C}. This angular resolution is comparable to  uniform or super-uniform weights in {\tt tclean}, but it preserves the natural-weights point-source sensitivity. 
+where $M$ is the default pixel intensity value and is set to $10^{-3}$ times the theoretical noise of the dirty map (as inferred from the visibility weights $\omega_k$). Here we set $\lambda = 0.01$.  Similar applications of {\tt uvmem} in the context of protoplanetary discs can be found, for example,  in \citet{Casassus2013Natur, 2018MNRAS.477.5104C, Casassus2019MNRAS.483.3278C,  Perez2019AJ....158...15P}.  An  advantage of {\tt uvmem} compared to more traditional imaging strategies, such as provided by the  {\tt tclean}   task in CASA, is that the effective angular resolution of the model image is  $\sim$3 times finer than the natural weights clean beam \citep[][]{2018A&C....22...16C}. This angular resolution is comparable to  uniform or super-uniform weights in {\tt tclean}, but it preserves the natural-weights point-source sensitivity. 
 
 The resulting {\tt uvmem} image shown in the top right panel of Fig.~\ref{fig:images_vs_simulated} exhibits previously unseen substructure of the disc. This image reveals that the disc features two rings of large dust grains with a broad gap between them, i.e. Ring13 at 13\,au and Ring24 starting at 24\,au. The wide and bright Ring24 reaches its peak intensity at $\sim$30\,au, beyond which it drops steeply before breaking at $\sim$35\,au into a shallow tail. While this is the first observation of Ring13, \citet{Ru_z_Rodr_guez_2019} did anticipate its existence as their ALMA continuum image showed a distinct excess between $\sim$10 and 17\,au.
 
@@ -153,13 +156,13 @@ The resulting {\tt uvmem} image shown in the top right panel of Fig.~\ref{fig:im
   \label{fig:images_vs_simulated}
 \end{figure*}
 
-Ring13 is surprisingly narrow and seems to be off-centred relative to the GAIA stellar position, at the origin of coordinates in Fig.~\ref{fig:images_vs_simulated}. We determined the ring's centre and orientation by minimising the dispersion of the disc radial profiles from 6\,au to 19\,au, by using the {\tt MPolarMaps} package described in Casassus et al. (2021, in prep). The resulting disc orientation is set at a position angle  (PA) of 77.31$\pm$0.03\,$\degr$, with an  inclination of 32.96$\pm$0.02\,$\degr$, and the optimal ring  centre is at $\Delta \alpha = -4\pm0.02$\,mas $\Delta \delta = 13\pm0.05$\,mas relative to the GAIA position of the stars. The offset of the center of the cavity and the nominal stellar positions is entirely consistent with a pointing error, since the pointing accuracy of ALMA is usually taken to be 1/10 of the natural-weights beam, at 1\,$\sigma$, or $\sim$6\,mas in this case. ***ANTONIO PLEASE CONFIRM AND PROVIDE A REFERENCE ***
+Ring13 is surprisingly narrow and seems to be off-centred relative to the GAIA stellar position, at the origin of coordinates in Fig.~\ref{fig:images_vs_simulated}. We determined the ring's centre and orientation by minimising the dispersion of the disc radial profiles from 6\,au to 19\,au, by using the {\tt MPolarMaps} package described in Casassus et al. (2021, in prep). The resulting disc orientation is set at a position angle  (PA) of 77.31$\pm$0.03\,$\degr$, with an  inclination of 32.96$\pm$0.02\,$\degr$, and the optimal ring  centre is at $\Delta \alpha = -4\pm0.02$\,mas $\Delta \delta = 13\pm0.05$\,mas relative to the GAIA position of the stars. The offset of the center of the cavity and the nominal stellar positions is entirely consistent with a pointing error, since the pointing accuracy of ALMA is usually taken to be 1/10 of the natural-weights beam, at 1\,$\sigma$, or $\sim$6\,mas in this case.
 
 The ring width can be measured in polar coordinates by fitting 1-D Gaussians, thus obtaining a width and centroid at each azimuth. On average, we obtained a FWHM of 2.83$\pm$0.50\,au, and a stellocentric radius of 13.15$\pm$0.26\,au (See Fig.~\ref{fig:polarring}). As the {\tt uvmem} model image has an effective angular resolution of $\sim$1/3 that of the natural-weighted beam ($0\farcs062 \,\times \, 0\farcs055$), we see that Ring13 is marginally resolved. After subtraction of the approximate {\tt uvmem} resolution ($\sim0\farcs021 \,\times \,\sim0\farcs018$), the ring width is $\sim$2.46$\pm$0.56\,au.
 
-In a second optimization of the disc orientation, but this time aiming for Ring24 with a radial domain from 20\,au to 70\,au, we obtained a PA of 76.86$\pm$0.02\,$\degr$, with an inclination of 33.92$\pm$0.01\,$\degr$ and a centre at $\Delta \alpha = 2\pm0.02$\,mas $\Delta \delta = 12\pm0.02$\,mas relative to the stars. We see that both Ring13 and Ring24 both share a very similar orientation and centre, given the errors. However, perhaps due to the joint effect of all these small differences, we can see that there are some hints for a somewhat different orientation, as summarised in Fig.~\ref{fig:polarring}.
+In a second optimization of the disc orientation, but this time aiming for Ring24 with a radial domain from 20\,au to 70\,au, we obtained a PA of 76.86$\pm$0.02\,$\degr$, with an inclination of 33.92$\pm$0.01\,$\degr$ and a centre at $\Delta \alpha = 2\pm0.02$\,mas $\Delta \delta = 12\pm0.02$\,mas relative to the stars. We see that both Ring13 and Ring24 share a very similar orientation and centre, given the errors. However, perhaps due to the joint effect of all these small differences, we can see that there are some hints for a somewhat different orientation, as summarised in Fig.~\ref{fig:polarring}.
 
-Interestingly, the ALMA image also detects faint 1.3\,mm continuum emission near the stellar positions (See the inset in Fig.~\ref{fig:images_vs_simulated}). Since this faint central emission is larger than the angular resolution, it is probably stemming from thermal emission from  large dust grains rather directly from the stars. The main blob of this dust structure is at estimated distance of only $0\farcs012\pm0\farcs002$, or $\sim$0.85$\pm$0.14\,au from the binary system, and, estimating its form as a Gaussian ellipse, it has a FWHM of $\sim$1.43\,au. If this feature is caused by the presence of millimeter-size dust, assuming optically thin emission, its estimated mass would be around 0.12\,M$_{\earth}$. %and may be part of an inner disc introduced in the RT model to match the SED (see Sec.~\ref{sec:model} below). 
+Interestingly, the ALMA image also detects faint 1.3\,mm continuum emission near the stellar positions (See the inset in Fig.~\ref{fig:images_vs_simulated}). Since this faint central emission is larger than the angular resolution, it is probably stemming from thermal emission from  large dust grains rather than directly from the stars. The main blob of this dust structure is at estimated distance of only $0\farcs012\pm0\farcs002$, or $\sim$0.85$\pm$0.14\,au from the binary system, and, estimating its form as a Gaussian ellipse, it has a FWHM of $\sim$1.43\,au. If this feature is caused by the presence of millimetre-sized dust, assuming optically thin emission, its estimated mass would be around 0.12\,M$_{\earth}$. %and may be part of an inner disc introduced in the RT model to match the SED (see Sec.~\ref{sec:model} below). 
 
 The scattered-light image in the top left panel of Fig.~\ref{fig:images_vs_simulated} also shows a double ring structure in the micron-sized dust distribution. The observed morphology presents an inner cavity of $\sim$10\,au in radius and two rings located at 14.10$\pm$0.01, coincident with Ring13, and 24.62$\pm$0.08\,au, coincident with Ring24, with a small gap between them at $\sim$20\,au. The observed second ring matches the inner wall of the 1.3\,mm continuum emission outer ring \citep{Ru_z_Rodr_guez_2019}. Two other important features that are present in the image are: the near-far brightness asymmetry, and the shadows projected on the disc by the close binary system as they eclipse each other, discovered by \citet{dOrazi}.
 
@@ -203,7 +206,7 @@ where $H_\circ$ is the scale height at $r$ = $r_\circ$, $\psi$ is the flaring in
 
 For the vertical structure, \citet{dOrazi} found flaring angles, i.e. $H/r$, of $\varphi$ = 6.2$\pm$0.6\,$\degr$ for the inner ring and $\varphi$ = 8.5$\pm$1.0\,$\degr$ for the outer one. Our model aims to reproduce those values by using two different flaring indices, $\psi_1$ and $\psi_2$. The separation between the two values was set at $r = 18$\,au with $\psi_1=0.2$ for Ring5 and Ring13, and $\psi_2=0.5$ for Ring24. The scale height is $H_\circ = 2.2$\,au at $r_\circ = 18$\,au. This is summarized in Fig.\ref{fig:profiles} bottom panel that shows the aspect ratio profile $h(r)=H(r)/r$. 
 
-We propose a three ringed structure to reproduce the observations. We separate the disc into four individual regions: the inner disc, Ring5, Ring13 and Ring24. The combined gas surface density profile is then given by:
+We propose a three-ringed structure to reproduce the observations. We separate the disc into four individual regions: the inner disc, Ring5, Ring13, and Ring24. The combined gas surface density profile is then given by:
 \begin{equation}
   \Sigma_{\mathrm{gas}}(r) = \Sigma_{\mathrm{inner\,disc}} + \Sigma_{\mathrm{Ring5}} + \Sigma_{\mathrm{Ring13}} + \Sigma_{\mathrm{Ring24}}
 \end{equation}
@@ -296,21 +299,21 @@ The simulated image at 1.65\,$\micron$ shows a similar radial structure to the o
     \label{fig:radprofiles}
 \end{figure}
 
-The simulated 1.3\,mm continuum image reproduces the two observed rings: the faint Ring13 and the brighter Ring24. The introduced Ring5 is not visible at the simulated image as its peak predicted intensities are around two times the noise in the ALMA image ($\sim$1$\times10^{-7}$\,Jy\,$\mathrm{beam}^{-1}$). This gives us an upper limit for the total millimeter-sized dust mass present in Ring5 of $\sim$2$\times10^{-5}$\,M$_{\earth}$. The depletion of large dust grains in Ring5 is consistent with efficient dust trapping in Ring13. A zone of radially increasing gas pressure can entirely filter out large dust grains from inner regions, while smaller grains can be able to overcome this barrier due to their strong frictional coupling to the gas accretion flow \citep[studied in the context of planetary gaps,][]{Rice2006,Zhu2012,Weber2018}. Still, the strong depletion of large particles demands that within Ring5 dust evolution is very inefficient or limited, or that large particles are very rapidly removed. Otherwise, the present small grains should quickly coagulate to form detectable grain sizes in the ALMA observation in Fig.\ref{fig:images_vs_simulated}  \citep{Drazkowska2019}. The central emission is not present in the 1.3\,mm continuum image as it was impossible to achieve a bright blob without disrupting the SED fit (read below).
+The simulated 1.3\,mm continuum image reproduces the two observed rings: the faint Ring13 and the brighter Ring24. The introduced Ring5 is not visible at the simulated image as its peak predicted intensities are around two times the noise in the ALMA image ($\sim$1$\times10^{-7}$\,Jy\,$\mathrm{beam}^{-1}$). This gives us an upper limit for the total millimetre-sized dust mass present in Ring5 of $\sim$2$\times10^{-5}$\,M$_{\earth}$. The depletion of large dust grains in Ring5 is consistent with efficient dust trapping in Ring13. A zone of radially increasing gas pressure can entirely filter out large dust grains from inner regions, while smaller grains can be able to overcome this barrier due to their strong frictional coupling to the gas accretion flow \citep[studied in the context of planetary gaps,][]{Rice2006,Zhu2012,Weber2018}. Still, the strong depletion of large particles demands that within Ring5 dust evolution is very inefficient or limited, or that large particles are very rapidly removed. Otherwise, the present small grains should quickly coagulate to form detectable grain sizes in the ALMA observation in Fig.\ref{fig:images_vs_simulated}  \citep{Drazkowska2019}. The central emission is not present in the 1.3\,mm continuum image as it was impossible to achieve a bright blob without disrupting the SED fit (read below).
 
-As the radial profiles obtained from the simulated images of the model closely resemble those deduced from the observations (Fig.~\ref{fig:radprofiles}), we can assume that the model provides a possible approximation of the disc structure, including the dimensions of Ring13. Accordingly, taking the parametric model values for Ring13, it has a radius of 13.22\,au, a FWHM of 2.00\,au, and a scale height FWHM of the millimetre-size dust of 0.61\,au. The total dust mass of Ring13 is about 0.7\,M$_{\earth}$ in the model. In turn, our model reproduces the observations of Ring24 with peak intensity at $\sim$30\,au, and break at $\sim$36\,au. It contains a total dust mass of $\sim$44\,M$_{\earth}$. The model predictions for the millimetre-size dust population in Ring13 are close to the measurements, with only a 0.07\,au difference in the centroid location of the ring, and a 0.46\,au difference in the width estimation. Since  the  scale height of the large grains in Ring13 is  0.61\,au, and has a  measured width of 2.46$\pm$0.56\,au, the ring is 4.1$\pm$0.9 times more extended radially than vertically.
+As the radial profiles obtained from the simulated images of the model closely resemble those deduced from the observations (Fig.~\ref{fig:radprofiles}), we can assume that the model provides a possible approximation of the disc structure, including the dimensions of Ring13. Accordingly, taking the parametric model values for Ring13, it has a radius of 13.22\,au, a FWHM of 2.00\,au, and a scale height FWHM of the millimetre-sized dust of 0.61\,au. The total dust mass of Ring13 is about 0.7\,M$_{\earth}$ in the model. In turn, our model reproduces the observations of Ring24 with peak intensity at $\sim$30\,au, and break at $\sim$36\,au. It contains a total dust mass of $\sim$44\,M$_{\earth}$. The model predictions for the millimetre-sized dust population in Ring13 are close to the measurements, with only a 0.07\,au difference in the centroid location of the ring, and a 0.46\,au difference in the width estimation. Since  the  scale height of the large grains in Ring13 is  0.61\,au, and has a  measured width of 2.46$\pm$0.56\,au, the ring is 4.1$\pm$0.9 times more extended radially than vertically.
 
-The observed structure may point to the existence of planet-disc interactions within this system, where a giant planet depletes its orbit of gas and dust material. A possible  constellation in this scenario is therefore the presence of two giant planets in the disc, one planet between the star and Ring13, and one planet between Ring13 and Ring24. As \citet{Ru_z_Rodr_guez_2019} suggest, the putative planet between Ring13 and Ring24 may be a giant planet with a mass within the range of 0.3$-$1.5\,$\mathrm{M}_{\mathrm{Jup}}$. This idea is supported by the similarity to the structure around HD\,169142 which \citet{2020arXiv200711565B} reproduced by including several giant planets. 
+The observed structure may point to the existence of planet-disc interactions within this system, where a giant planet depletes its orbit of gas and dust material. A possible  constellation in this scenario is, therefore, the presence of two giant planets in the disc, one planet between the star and Ring13, and one planet between Ring13 and Ring24. As \citet{Ru_z_Rodr_guez_2019} suggest, the putative planet between Ring13 and Ring24 may be a giant planet with a mass within the range of 0.3$-$1.5\,$\mathrm{M}_{\mathrm{Jup}}$. This idea is supported by the similarity to the structure around HD\,169142 which \citet{2020arXiv200711565B} reproduced by including several giant planets. 
 
 The effective beam size of the presented ALMA observations marginally resolves the FWHM of Ring13 to be $w_\mathrm{d} = 2.46\pm$0.56\,au. Using that the gas' Ring13-FWHM in the RT model corresponds to $w_\mathrm{g} = 5.42\mathrm{au}$, we can see that large dust grains have to be radially converged to explain the discrepancy.
 
 Even though the radial spread of large dust grains in Ring13 appears to be quite thin, the width in comparison to the sub-lying gas profile speaks for the presence of considerable turbulent diffusion. Following a similar ring analysis as in \citet{2018ApJ...869L..46D}, we find that the ratio between the dimensionless diffusion parameter, $D$, and the dimensionless Stokes number, St, (which parameterizes the dynamical behaviour of a grain) is roughly, $D/{\rm St}\approx 0.1$. The observed signal is expected to be dominated by grains of size $a\approx 0.02\,{\rm cm}$. The RT model, together with the dust-to-gas ratio of 0.05, prescribe a gas density of $\Sigma_{\rm g} \approx 0.5\,{\rm g}{\rm cm}^{-2}$ to the location of Ring13. With these values, the relevant Stokes number is approximated to be St$\approx 0.1$. This yields an estimate for the level of diffusivity of $D\approx 0.01$. It further provides a value for the level of turbulent viscosity in Ring13, $\alpha_{\rm turb}\approx 0.01$, assuming viscosity to be equal to the level of diffusion \citep{2007Icar..192..588Y}. We note that an observation of molecular line broadening has found no evidence for turbulent contributions, suggesting $\alpha_{\rm turb}<0.01$ \citep{Flaherty_2020}. The value inferred from our model is just within this limit. It is linearly proportional to the local dust-to-gas ratio (by our definition of the gas surface density profile) a standard ISM  value of 0.01 for the dust-to-gas ratio would thus lead to an expected level of turbulent viscosity of $\alpha_{\rm turb}\approx 5\times10^{-3}$. While the exact value for $\alpha_{\rm turb}$ is not well constrained, the presence of turbulence is a robust detection, as it is required to explain the radial spread of the resolved Ring13.
 
-The observed SED is compared with the model in Fig.~\ref{fig:SED}. From the similarity with the data we propose that there has to be a small-grain population close to the stars down to 0.3\,au. The observed central and compact signal in the ALMA observation cannot be explained with the hypothesis of thermal emission from large grains in the inner disc. Following the mass estimates in Section\,\ref{sec:Observations}, the millimeter-sized dust needed reaches $\sim$18 times larger surface densities than in the gas, resulting in a large excess at 10$\,\micron$ that does not match the data. On the other hand, the decision of employing the three ringed structure (i.e. add Ring5 to the observed structure) relies on the fact that the SED needed a ring at a radius around 5--7\,au to have a proper fit around 10\,$\micron$. 
+The observed SED is compared with the model in Fig.~\ref{fig:SED}. From the similarity with the data, we propose that there has to be a small-grain population close to the stars down to 0.3\,au. The observed central and compact signal in the ALMA observation cannot be explained with the hypothesis of thermal emission from large grains in the inner disc. Following the mass estimates in Section\,\ref{sec:Observations}, the millimetre-sized dust needed reaches $\sim$18 times larger surface densities than in the gas, resulting in a large excess at 10$\,\micron$ that does not match the data. On the other hand, the decision of employing the three-ringed structure (i.e. add Ring5 to the observed structure) relies on the fact that the SED needed a ring at a radius around 5--7\,au to have a proper fit around 10\,$\micron$. 
 
 \section{Conclusions} \label{sec:Conclusions}
 
-New ALMA 1.3\,mm continuum imaging of the circumbinary disc around V4046\,Sgr were analysed in the context of the available IR imaging and the observed spectral energy distribution using a RT model. The key conclusions are as follows.
+New ALMA 1.3\,mm continuum imaging of the circumbinary disc around V4046\,Sgr were analysed in the context of the available IR imaging and the observed spectral energy distribution using an RT model. The key conclusions are as follows.
 \begin{enumerate}
   \item We report the detection of a narrow ring in the 1.3\,mm continuum, with a radius 13.15$\pm$0.26\,au and an estimated width of 2.46$\pm$0.56\,au. The location of this ring is coincident with the inner ring observed in the scattered-light image, revealing that the ring includes around 0.7\,M$_{\earth}$ millimetre-sized grains. Using the parametric model scale height value ($H=$ 0.60\,au at 13.15\,au) we have that the ring width is roughly 4 times its estimated height.
   
@@ -318,7 +321,7 @@ New ALMA 1.3\,mm continuum imaging of the circumbinary disc around V4046\,Sgr we
   
   \item We interpret the asymmetry observed with SPHERE--IRDIS at 1.65\,$\micron$ as due to strong forward-scattering, which implies that the dust population is depleted of grains smaller than $\sim$0.4\,$\micron$.
   
-  \item Our parametric model, which accounts for the SED of the system, involves the existence of a sub-micron dust population close (<5\,au) to the stars, and predicts the presence of another inner ring at $\sim$5\,au made mainly of small dust grains.
+  \item Our parametric model, which accounts for the SED of the system, involves the existence of a sub-micron dust population close (<5\,au) to the stars, and predicts the presence of another inner ring at $\sim$5\,au, made mainly of small dust grains.
   
   \item The resolved radial width of Ring13 speaks for the presence of a considerable level of turbulent viscosity.
 
@@ -342,6 +345,8 @@ S.C. acknowledges support from FONDECYT grant 1171624.
 S.P. acknowledges support from the Joint Committee of ESO and the Government of Chile and FONDECYT grant 1191934.
 
 A.Z. acknowledges support from the FONDECYT Iniciaci\'on en investigaci\'on project number 11190837
+
+MC acknowledges support from ANID PFCHA/DOCTORADO BECAS CHILE/2018-72190574.
 
 %\section*{Data Availability}
 
