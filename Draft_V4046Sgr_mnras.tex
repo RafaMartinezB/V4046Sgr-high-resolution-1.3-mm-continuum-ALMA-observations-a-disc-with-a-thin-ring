@@ -128,9 +128,9 @@ Recent observations of young circumstellar discs have transformed current knowle
 
 V4046\,Sgr is a double-lined spectroscopic binary of K-type stars (K5 and K7) with very similar masses of 0.90$\pm$0.05\,M$_{\sun}$ and 0.85$\pm$0.04\,M$_{\sun}$ \citep{Rosenfeld_2012}, on a close ($a \approx 0.041$\,au), circular ($e\leq0.01$) orbit, with an orbital period of 2.42 days \citep{2000IAUS..200P..28Q}. It is a member of the $\beta$ Pictoris moving group \citep{Zuckerman_2004}, with an estimated age of 18.5$^{+2.0}_{-2.4}$\,Myr \citep{2020A&A...642A.179M}, and its distance is 71.48$\pm$0.11\,pc \citep{gaiacollaboration2020gaia}. V4046\,Sgr hosts a massive ($\sim$0.1\,M$_{\sun}$) circumbinary disc extending to $\sim$300\,au \citep{Rosenfeld_2013, Rodriguez_2010}, rich in diverse molecular lines \citep{Kastner_2018}.
 
-Disc structures can be explored by means of comparing mm continuum and scattered-light images. These observations allow us to see the distribution of different populations of dust particles, while ALMA traces the millimetre-sized grains settled in the mid-plane of the disc, scattered-light imaging accounts for photons reflected off small micron-sized dust at the disc surface layer, high above the mid-plane. By comparing both, is easier to determine whether asymmetries in scattered light correspond to surface ripples or deep structures intrinsic to the underlying density distribution.
+Disc structures can be explored by means of comparing millimetre continuum and scattered-light images. These observations allow us to see the distribution of different populations of dust particles: while ALMA traces the millimetre-sized grains settled in the mid-plane of the disc, scattered-light imaging accounts for photons reflected off micron-sized dust at the disc surface layer, high above the mid-plane. By comparing both, is easier to determine whether asymmetries in scattered light correspond to surface ripples or deep structures intrinsic to the underlying density distribution.
 
-From previous analysis of radio wavelength observations taken with Sub-millimeter Array (SMA) \citep{Rapson_2015} and subsequently with ALMA \citep{Guzman_2017,Huang_2017,Bergner_2018,Kastner_2018}, it was detected that the millimeter dust configuration of the circumbinary disc had a large inner hole of $\sim$30\,au, featuring a narrow ring centred around 37\,au that accounted for most of the dust mass. Later on, \citet{Avenhaus_2018} using DPI in the J and H bands confirmed the double-ring morphology presented by \citet{Rapson_2015}, where the micron-size dust disc presented an $\sim$10\,au-wide inner cavity, a narrow ring at $\sim$14\,au and the outer ring centred at $\sim$27\,au.
+From previous analysis of radio wavelength observations taken with Sub-millimeter Array (SMA) \citep{Rosenfeld_2013} and subsequently with ALMA \citep{Guzman_2017,Huang_2017,Bergner_2018,Kastner_2018}, it was detected that the millimeter dust configuration of the circumbinary disc had a large inner hole of $\sim$30\,au, featuring a narrow ring centred around 37\,au that accounted for most of the dust mass. Later on, \citet{Avenhaus_2018} using DPI in the J and H bands confirmed the double-ring morphology presented by \citet{Rapson_2015}, where the micron-size dust disc presented an $\sim$10\,au-wide inner cavity, a narrow ring at $\sim$14\,au and the outer ring centred at $\sim$27\,au.
 
 The pursuit of creating high-fidelity parametric simulations that resolve NIR scattered-light and millimeter continuum observations simultaneously is something only few have ventured into \citep[e.g.][]{Dong_2018,2019MNRAS.486..304B, Ru_z_Rodr_guez_2019}. A model that achieves this quest can serve as a convenient sample to interpret real data in terms of a physical model. In this paper we aim to reproduce the protoplanetary disc around V4046\,Sgr with a 3D model using as guidance previous NIR images, the spectral energy distribution (SED) and a new high definition 1.3\,mm continuum ALMA image, as a way to throw light on its complex structure and the processes that are occurring in it.
 
@@ -196,7 +196,7 @@ The observed SED was collected from data in the literature \citep{1988iras....7.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\columnwidth]{SED_.png}
+	\includegraphics[width=\columnwidth]{SED_.pdf}
     \caption{The observed SED of V4046\,Sgr (black points and solid red curve) compared with the model (blue). The black points represent the measured photometry and the red line shows an archival \textit{Spitzer} IRS spectrum. The dashed silver curve shows the emission of the stellar photosphere model.}
     \label{fig:SED}
 \end{figure}
@@ -239,7 +239,7 @@ The inner disc follows a power-law function defined by
 \end{equation}
 where $R_c$ is a characteristic radius and $\gamma$ is the surface density power-law index. We used $R_c$ = 16\,au, $\Sigma_\mathrm{c} =3.3\times10^{-4}$\,$\mathrm{g\,cm^{-3}}$ and a fixed $\gamma$ = 1 as it is a typical value for discs \citep{Andrews_2009,Andrews_2010}. Our model extends from 0.3\,au outwards, consistent with the inner edge radius inferred from the SED data (See sec. \ref{subsec:SED}).
 
-We choose to use Gaussian profiles to parameterize Ring5 and Ring13,
+We choose to use Gaussian profiles to parametrize Ring5 and Ring13,
 \begin{equation}
   \Sigma_{\mathrm{ring}}(r) = \frac{\Sigma_\circ}{\sqrt{2 \pi} \sigma}
   \, \mathrm{exp}\left[-\frac{1}{2}\left(\frac{r-\mu}{\sigma}\right)^{2}\right],
