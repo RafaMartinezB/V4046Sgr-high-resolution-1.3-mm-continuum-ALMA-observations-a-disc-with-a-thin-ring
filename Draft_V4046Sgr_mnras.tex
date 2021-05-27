@@ -331,9 +331,9 @@ The inner radius of the model grid was set to 0.1\,au, and the outer radius to 1
 
 While certainly not unique, our parametric model is fairly successful in reproducing the available data, so it became a useful tool to discuss the real disc. The simulated images and the SED of the model are shown in Fig.~\ref{fig:images_vs_simulated} and Fig.~\ref{fig:SED} respectively.
 
-As mentioned before, the model presented here gives a solution to a highly degenerative problem. Nevertheless, as a way to improve and obtain a rough measure of the accuracy of our model, we made one dimensional explorations of the parameter space and found uncertainties of some relevant parameters that will be useful for the discussion (see Appendix.~\ref{sec:Appendix}). We can estimate that the scale height at $r_\circ$= 18\,au is $H_\circ = 0.92^{+0.01}_{-0.01}$\,au, the width of Ring13 is $w_\mathrm{g} = 5.18^{+0.42}_{-0.16}$\,au for the gas and $w_\mathrm{g} = 2.00^{+0.08}_{-1.4}$\,au, the location of Ring5 is $r=5.2^{+0.05}_{-0.7}$\,au and its width is $w_\mathrm{Ring5} = 0.59^{+0.08}_{-0.36}$\,au.
+As mentioned before, the model presented here gives a solution to a highly degenerative problem. Nevertheless, as a way to improve and obtain a rough measure of the accuracy of our model, we made one dimensional explorations of the parameter space and found uncertainties of some relevant parameters that will be useful for the discussion (see Appendix.~\ref{sec:Appendix}). We can estimate confidence intervals for the scale height at $r_\circ$= 18\,au with $H_\circ = 0.92^{+0.01}_{-0.01}$\,au, for the location of Ring5 with $r=5.2^{+0.14}_{-0.36}$\,au, and for the width of gas Ring13 of $w_\mathrm{g} = 5.18^{+0.33}_{-0.20}$\,au.
 
-Given those uncertainties for the width of Ring13 and the , one thought that arise is that the inner ring could be much thinner than our ALMA measurements The intrinsic error of the {\tt uvmem} correction can not be known with high accuracy, so the approximate beam may not be $1/3$ of the beam in natural weights but higher. Any change in this factor would translate to into a narrower Ring13. With a $2/5$ factor, the width of Ring13 is 2.28$\pm$0.51\,au, resulting in a marginally resolve ring. T
+%Given those uncertainties for the width of Ring13 and the , one thought that arise is that the inner ring could be much thinner than our ALMA measurements The intrinsic error of the {\tt uvmem} correction can not be known with high accuracy, so the approximate beam may not be $1/3$ of the beam in natural weights but higher. Any change in this factor would translate to into a narrower Ring13. With a $2/5$ factor, the width of Ring13 is 2.28$\pm$0.51\,au, resulting in a marginally resolve ring. T
 
 The simulated image at 1.65\,$\micron$ matches the radial structure of the corresponding observation to a high degree, displaying a two ringed disc, where Ring5 hides under the artificial coronagraph. The visible asymmetry in the SPHERE observations is reproduced using relatively large grains, $\sim$0.4\,$\micron$, as smaller grains did not result in such strong forward scattering. As \citet{refId0} state, the strong forward scattering that is present in the observation may indicate that the dust grains in the disc surface are relatively large, suggesting that the disc is depleted of very small grains. Alternatively, it may suggest that grains are not spherical as assumed in the calculations of opacities using Mie theory. Interestingly, the model accurately shows the shadows described by \citet{dOrazi} that are present in the SPHERE--IRDIS image.
 
@@ -375,8 +375,6 @@ The key conclusions of this multi-layered analysis are as follows.
   %The weak central emission at 1.3\,mm could be part of this ring.
 \end{enumerate}
 
-
-
 \section*{Acknowledgements}
 
 S.C. acknowledges support from FONDECYT grant 1171624. S.P. acknowledges support from the Joint Committee of ESO and the Government of Chile and FONDECYT grant 1191934. A.Z. acknowledges support from the FONDECYT Iniciaci\'on en investigaci\'on project number 11190837. MC acknowledges support from ANID PFCHA/DOCTORADO BECAS CHILE/2018-72190574. This paper makes use of the following ALMA data: ADS/JAO.ALMA \#2017.0.01167.S. ALMA is a partnership of ESO (representing its member states), NSF (USA) and NINS (Japan), together with NRC (Canada), MOST and ASIAA (Taiwan), and KASI (Republic of Korea), in cooperation with the Republic of Chile. The Joint ALMA Observatory is operated by ESO, AUI/NRAO and NAOJ. The National Radio Astronomy Observatory is a facility of the National Science Foundation operated under cooperative agreement by Associated Universities, Inc. This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France (DOI : 10.26093/cds/vizier). The original description of the VizieR service was published in \citet{2000A&AS..143...23O}. This research has made use of the NASA/IPAC Infrared Science Archive, which is funded by the National Aeronautics and Space Administration and operated by the California Institute of Technology.
@@ -409,14 +407,17 @@ The data used in this article are presented in Fig.~\ref{fig:images_vs_simulated
 
 \section{Parameter--space exploitation} \label{sec:Appendix}
 
-The model presented here has many degrees of freedom and each model requires a high level of computational power and time, so a MCMC optimization or similar methods of parameter exploration are impossible to acquire. But as a way to compute a measure of goodness of fit and to try to quantify the improvements we did a partial exploration of the parameter space. Varying the value for one parameter and calculating chi-square for each new value, given $\chi^2_m$ the model chi squared value, the uncertainties (up and down) will be those with $\chi^2=\chi^2_m+1$. Assuming a quadratic behavior for the curve fitting,
+The model presented here has many degrees of freedom and each model requires a high level of computational power and time, so a MCMC optimization or similar methods of parameter exploration are impossible to acquire. But as a way to compute a measure of goodness of fit and to try to quantify the improvements we did a partial exploration of the parameter space. We explore $\chi^2$ space in the vicinity of the model values for the scale height at $r_\circ$, the location of Ring5, the width of the gas component of Ring13, the width of the gas part of Ring5, the width of the large dust portion of Ring13 and around the lower limit of the grain sizes in the blob. The parameter space exploration is shown in Figure~\ref{fig:chi}. Our model fits the SED and two images, so the total $\chi^2$ value for a given model is composed of the sum of the $\chi^2$ values for each of the three fits.
+
+For the first three parameters, we find that the value of the parameter in our model is almost at a minimum in its one dimensional $\chi^2$ space, so given $\chi^2_m$ the total chi squared value for the model, the uncertainties (up and down) will be those with $\chi^2=\chi^2_m+1$. As the values are around a local minimum, we can as assume a quadratic equation for the curve fitting.
+
+For the the other three parameters, we found that although our chosen values are close to a minimum, the geometries are more suggestive of different border conditions. These exploration allow us to support the idea of Ring5, as it is clear that the absence of it creates a great increment in the total $\chi^2$ value, but also that the ring must be quite thin. For the case of the lower limit of the central blob, it is evident that there is a threshold around 500\,$\micron$, where the SED start to deviate far away from a minimum, that point represent where the NIR excess becomes significant.
+
 \begin{figure*}
-	\includegraphics[width=\textwidth]{plot_chi_all.pdf}
-        \caption{one dimensional explorations of the chi squared space of our parametric model. {\it Top:} scale height at $r_\circ$=18\,au, width of }
+	\includegraphics[width=\textwidth]{plot_chi_squared_all800.pdf}
+        \caption{one dimensional explorations of the chi squared space of our parametric model. Each panel display at the bottom the $\chi^2$ values for the SED and for the two images separately, and on top the total $\chi^2$ value in terms of the parameter value. {\it Top:} scale height at $r_\circ$=18\,au, location of Ring5, width of the gas component of Ring13. {\it Bottom:} Width of the gas part of Ring5, width of the large dust section of Ring13, lower limit of the grain sizes in the blob.}
     \label{fig:chi}
 \end{figure*}
-
-The 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
